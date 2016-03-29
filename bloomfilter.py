@@ -8,8 +8,7 @@ class BloomFilter(object):
     def __init__(self, capacity = 1000, error_rate = 0.001):
         '''self.num_hash :       optimal number of hash functions
            self.num_bit :          the approprate bits of bloom filter
-        '''
-        self.capacity = capacity
+        ''' self.capacity = capacity
         self.error_rate = error_rate
         self.num_hash = int(ceil(-capacity*log(error_rate) / pow(log(2), 2)))
         self.num_bit = int(ceil(log(1/error_rate, 2)))
@@ -45,18 +44,3 @@ class BloomFilter(object):
             if not self.filter_bitarray[index]:
                 return False
         return True
-
-if __name__ == "__main__":
-    test = BloomFilter(10000, 0.01)
-    url = "www.baidu.com"
-    if url in test:
-        print "exsits"
-    else:
-        print "add"
-        test.add(url)
-
-    if url in test:
-        print "exsits"
-    else:
-        print "add"
-        test.add(url)
