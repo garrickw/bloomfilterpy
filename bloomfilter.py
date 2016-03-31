@@ -32,6 +32,14 @@ class BloomFilter(object):
             self.filter_bitarray[index] = True
 
 
+    def container_size(self):
+        """A help function to test"""
+        import cPickle
+        import sys
+        t = cPickle.dumps(self.filter_bitarray)
+        return sys.getsizeof(t)
+
+
     def size(self):
         """return the number of added items"""
         return self.num_item
